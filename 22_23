@@ -1,0 +1,115 @@
+# 11.11.2018
+/*22) Для структуры Date напишите метод, определяющий, сколько дней осталось до
+Нового Года.
+23) Для структуры Date напишите оператор минус возвращающий, количество дней
+прошедших между датами.*/
+#include <iostream>
+
+using namespace std;
+struct Date{
+int day;
+int month;
+int year;
+int d, m, y, d1, m1, y1;
+
+int NG(){
+int y = year;
+int m = month;
+int d = day;
+int n;
+int j = 28;
+int k;
+int kd = 365;
+if (y%4==0){
+    j=29;
+    kd=366;
+}
+m=m-1;
+
+    while (m!=0){
+        if (m == 1 || m == 3 || m == 5 || m==7 || m == 8 || m == 10 || m == 12){k = 31;}
+        if (m == 4 || m == 6 || m == 9 || m == 11){k = 30;}
+        if (m == 2){k=j;}
+        d=d+k;
+          m--;
+    }
+    n=kd-d;
+    return n;
+}
+int operator-(int d, int m, int y, int d1, int m1, int y1){
+int j = 28, j1 = 28;;
+int k, k1, qp = 0;
+int kd = 365, kd1 = 365;
+int g;
+
+g = y - y1;
+if (g<0){g = g*(-1);}
+int nn=0;
+if(y<y1){
+    while(y<=y1){
+        if(y%4==0){nn++;}
+        y++;
+    }
+}
+if(y>y1){
+    while(y<=y1){
+        if(y1 % 4==0){nn++;}
+        y1++;
+    }
+}
+
+if (y%4==0){
+    j=29;
+    kd=366;
+}
+if (y%41==0){
+    j1=29;
+    kd1=366;
+}
+
+m--;
+m1--;
+
+     while (m!=0){
+        if (m == 1 || m == 3 || m == 5 || m==7 || m == 8 || m == 10 || m == 12){k = 31;}
+        if (m == 4 || m == 6 || m == 9 || m == 11){k = 30;}
+        if (m == 2){k=j;}
+        d=d+k;
+          m--;
+    }
+
+         while (m1!=0){
+        if (m1 == 1 || m1 == 3 || m1 == 5 || m1==7 || m1 == 8 || m1 == 10 || m1 == 12){k1 = 31;}
+        if (m1 == 4 || m1 == 6 || m1 == 9 || m1 == 11){k1 = 30;}
+        if (m1 == 2){k1=j1;}
+        d1=d1+k1;
+          m1--;
+    }
+
+
+
+int r;
+
+if(g>1){r = kd*(g)+nn;}
+
+
+if(g==1){
+        if(y<y1){r = kd-d+d1;}
+        if(y>y1){r = kd1-d1+d1;}
+        }
+if(y == y1){
+ if(y<y1){r = d - d1;}
+ if(y>y1){r = d1 - d;}
+}
+return r;
+}
+};
+
+
+
+int main()
+{
+
+    
+    return 0;
+}
