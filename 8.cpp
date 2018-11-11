@@ -58,10 +58,6 @@ if (i1<(i2/2)){ans = ans1;}
 if (i2<(i1/2)) {ans = ans2;}
 else
 ans = (ans1+ans2)/2;
-cout << "i2 = "<<i2<<endl;
-cout <<"ans2 = " <<ans2<<endl;
-cout << "i1 = "<<i1<<endl;
-cout <<"ans1 = " <<ans1<<endl;
     return ans;
 }
 
